@@ -1,7 +1,7 @@
 const Navigation = () => {
   return (
     <div>
-      <h1>Navigation</h1>
+      <h1 className="text-3xl font-bold underline">Navigation</h1>
     </div>
   );
 };
