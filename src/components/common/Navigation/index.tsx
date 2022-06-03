@@ -23,7 +23,12 @@ const NavigationSmScreen = (): JSX.Element => {
   const { sidebarOpen, toggleSidebar } = useContext(SidebarContext);
 
   return (
-    <div className="fixed block md:hidden bg-black left-0 top-0 w-full xs:w-3/6 h-full text-white">
+    <div
+      className={
+        "fixed md:hidden bg-black left-0 top-0 w-full xs:w-3/6 h-full text-white" +
+        (sidebarOpen ? " block" : " hidden")
+      }
+    >
       <div className="p-3 flex justify-end" onClick={toggleSidebar}>
         <XIcon className="h-6 w-6" />
       </div>
@@ -42,10 +47,12 @@ const NavigationSmScreen = (): JSX.Element => {
 };
 
 const Navigation = (): JSX.Element => {
+  const { toggleSidebar } = useContext(SidebarContext);
+
   return (
     <nav className="flex justify-between px-5 py-3">
       <NavigationSmScreen />
-      <div className="block lg:hidden">
+      <div className="block lg:hidden" onClick={toggleSidebar}>
         <MenuIcon className="h-6 w-6" />
       </div>
       <div>
