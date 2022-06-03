@@ -5,7 +5,7 @@ interface SidebarContextInterface {
   toggleSidebar: () => void;
 }
 
-interface SidebarContextProps {
+interface SidebarContextPropsInterface {
   children: ReactNode;
 }
 
@@ -13,7 +13,7 @@ const SidebarContext = createContext<SidebarContextInterface>(
   {} as SidebarContextInterface
 );
 
-const SidebarProvider: FC<SidebarContextProps> = ({ children }) => {
+const SidebarProvider: FC<SidebarContextPropsInterface> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
   const toggleSidebar = () => {
