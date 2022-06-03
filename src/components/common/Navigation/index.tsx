@@ -1,4 +1,6 @@
+import { useContext, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { SidebarContext } from "../../../contexts/SidebarContext";
 import {
   MenuIcon,
   ShoppingCartIcon,
@@ -17,23 +19,27 @@ const RenderNavItem = ({ navItem }: { navItem: NavItem }): JSX.Element => {
   );
 };
 
-const NavigationSmScreen = (): JSX.Element => (
-  <div className="fixed block md:hidden bg-black left-0 top-0 w-full xs:w-3/6 h-full text-white">
-    <div className="p-3 flex justify-end">
-      <XIcon className="h-6 w-6" />
+const NavigationSmScreen = (): JSX.Element => {
+  const { sidebarOpen, toggleSidebar } = useContext(SidebarContext);
+
+  return (
+    <div className="fixed block md:hidden bg-black left-0 top-0 w-full xs:w-3/6 h-full text-white">
+      <div className="p-3 flex justify-end" onClick={toggleSidebar}>
+        <XIcon className="h-6 w-6" />
+      </div>
+      <ul className="font-thin text-xs">
+        {navItems.map((navItem: NavItem, index) => (
+          <Fragment key={index}>
+            <RenderNavItem navItem={navItem} />
+            {index !== navItems.length - 1 && (
+              <hr className="mb-4 mx-4 border-t-slate-900" />
+            )}
+          </Fragment>
+        ))}
+      </ul>
     </div>
-    <ul className="font-thin text-xs">
-      {navItems.map((navItem: NavItem, index: number) => (
-        <>
-          <RenderNavItem navItem={navItem} key={index} />
-          {index !== navItems.length - 1 && (
-            <hr className="mb-4 mx-4 border-t-slate-900" />
-          )}
-        </>
-      ))}
-    </ul>
-  </div>
-);
+  );
+};
 
 const Navigation = (): JSX.Element => {
   return (
