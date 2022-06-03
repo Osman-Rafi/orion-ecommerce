@@ -16,7 +16,7 @@ const SidebarContext = createContext<SidebarContextInterface>(
 const SidebarProvider: FC<SidebarContextPropsInterface> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
 
-  const toggleSidebar = () => {
+  const toggleSidebar = (): void => {
     setSidebarOpen(!sidebarOpen);
   };
 
