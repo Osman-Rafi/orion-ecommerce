@@ -14,7 +14,9 @@ import navItems, { NavItem } from "./items";
 const RenderNavItem = ({ navItem }: { navItem: NavItem }): JSX.Element => {
   return (
     <li className="px-4 py-2">
-      <Link to={navItem.link}>{navItem.label}</Link>
+      <Link className="text-2xl" to={navItem.link}>
+        {navItem.label}
+      </Link>
     </li>
   );
 };
@@ -25,14 +27,14 @@ const NavigationSmScreen = (): JSX.Element => {
   return (
     <div
       className={
-        "fixed md:hidden bg-black left-0 top-0 w-full xs:w-3/6 h-full text-white" +
-        (sidebarOpen ? " block" : " hidden")
+        "fixed md:hidden bg-black left-0 top-0 w-full sm:w-3/6 h-full text-white transition delay-50 duration-200 ease-in-out" +
+        (sidebarOpen ? " translate-x-0" : " -translate-x-full")
       }
     >
       <div className="p-3 flex justify-end" onClick={toggleSidebar}>
         <XIcon className="h-6 w-6" />
       </div>
-      <ul className="font-thin text-xs">
+      <ul className="font-thin text-center">
         {navItems.map((navItem: NavItem, index) => (
           <Fragment key={index}>
             <RenderNavItem navItem={navItem} />
