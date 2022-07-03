@@ -14,7 +14,7 @@ import navItems, { NavItem } from "./items";
 const RenderNavItem = ({ navItem }: { navItem: NavItem }): JSX.Element => {
   return (
     <li className="px-4 py-2">
-      <Link className="text-2xl" to={navItem.link}>
+      <Link className="text-2xl sm:text-sm" to={navItem.link}>
         {navItem.label}
       </Link>
     </li>
