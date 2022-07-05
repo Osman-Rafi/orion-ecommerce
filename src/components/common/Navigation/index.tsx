@@ -67,7 +67,7 @@ const Navigation = (): JSX.Element => {
           ))}
         </ul>
       </div>
-      <div className="flex">
+      <div className="flex items-center">
         <div className="mr-6 hidden md:block">
           <HeartIcon className="h-6 w-6" />
         </div>
