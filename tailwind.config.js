@@ -5,7 +5,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'poppins': ['"Poppins"', "sans-serif"],
+        poppins: ['"Poppins"', "sans-serif"],
+      },
+      colors: {
+        "mid-purple": "#725c81",
+      },
+      height: {
+        "screen-50": "50vh",
+        "screen-75": "75vh",
       },
     },
     screens: {

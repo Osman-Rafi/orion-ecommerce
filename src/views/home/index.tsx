@@ -1,7 +1,9 @@
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <div className="bg-mid-purple">
+        <img className="-translate-x-20" src="media/img/banner-girl.png" alt="banner" />
+      </div>
     </div>
   );
 };
