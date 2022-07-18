@@ -7,13 +7,16 @@ module.exports = {
       fontFamily: {
         poppins: ['"Poppins"', "sans-serif"],
       },
-      colors: {
-        "mid-purple": "#725c81",
-      },
       height: {
         "screen-50": "50vh",
         "screen-75": "75vh",
       },
+      minHeight: {
+        "screen-50": "50vh",
+      },
+      backgroundImage: (theme) => ({
+        "neosiam-img": "url('images/neosiam-banner.jpg')",
+      }),
     },
     screens: {
       xs: "375px",
